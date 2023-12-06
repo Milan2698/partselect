@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask API</title>
+</head>
+<body>
+    <h1>Flask API for findPrice</h1>
+    <form method="post" action="/">
+        <label for="modelNumber">Enter Model Number:</label>
+        <input type="text" name="modelNumber" required>
+        <button type="submit">Submit</button>
+    </form>
+
+    <br>
+    <br>
+    {% if result %}
+        <table border="1">
+            <tr>
+                <th>Search</th>
+                <th>First Column</th>
+                <th>Second Column</th>
+                <th>Third Column</th>
+            </tr>
+            {% for row in result %}
+                <tr>
+                    <td>{{ row['search'] }}</td>
+                    <td>{{ row['firstColumn'] }}</td>
+                    <td>{{ row['secondColumn'] }}</td>
+                    <td>{{ row['thirdColumn'] }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
+</body>
+</html>
